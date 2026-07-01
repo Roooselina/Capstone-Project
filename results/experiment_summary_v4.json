@@ -1,0 +1,59 @@
+{
+  "results": {
+    "Transformer": {
+      "model_name": "Transformer",
+      "acc": 0.9984897111572588,
+      "macro_f1": 0.9982079611587713,
+      "n_miscls": 24,
+      "report_str": "              precision    recall  f1-score   support\n\n        real     0.9963    0.9987    0.9975      4789\n        fake     0.9995    0.9984    0.9989     11102\n\n    accuracy                         0.9985     15891\n   macro avg     0.9979    0.9986    0.9982     15891\nweighted avg     0.9985    0.9985    0.9985     15891\n"
+    },
+    "Hybrid": {
+      "model_name": "Hybrid",
+      "acc": 0.9991819268768485,
+      "macro_f1": 0.9990287943439173,
+      "n_miscls": 13,
+      "report_str": "              precision    recall  f1-score   support\n\n        real     0.9983    0.9990    0.9986      4789\n        fake     0.9995    0.9993    0.9994     11102\n\n    accuracy                         0.9992     15891\n   macro avg     0.9989    0.9991    0.9990     15891\nweighted avg     0.9992    0.9992    0.9992     15891\n"
+    },
+    "BiLSTM": {
+      "model_name": "BiLSTM",
+      "acc": 0.9991819268768485,
+      "macro_f1": 0.999029024703602,
+      "n_miscls": 13,
+      "report_str": "              precision    recall  f1-score   support\n\n        real     0.9979    0.9994    0.9986      4789\n        fake     0.9997    0.9991    0.9994     11102\n\n    accuracy                         0.9992     15891\n   macro avg     0.9988    0.9992    0.9990     15891\nweighted avg     0.9992    0.9992    0.9992     15891\n"
+    }
+  },
+  "eer_summary": {
+    "Transformer": {
+      "auc": 0.99971513600852,
+      "eer": 0.0014514323963231773,
+      "ap": 0.9997575536055593
+    },
+    "Hybrid": {
+      "auc": 0.9999180984285168,
+      "eer": 0.0011075097449610087,
+      "ap": 0.9999513933323909
+    },
+    "BiLSTM": {
+      "auc": 0.9999770912586826,
+      "eer": 0.0008229560935728293,
+      "ap": 0.9999890694387057
+    }
+  },
+  "wilson_cis": {
+    "Transformer": [
+      0.9984897111572588,
+      0.9977536318635521,
+      0.9989848408695668
+    ],
+    "Hybrid": [
+      0.9991819268768485,
+      0.9986007369115605,
+      0.9995218326719105
+    ],
+    "BiLSTM": [
+      0.9991819268768485,
+      0.9986007369115605,
+      0.9995218326719105
+    ]
+  }
+}
