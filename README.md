@@ -1,10 +1,30 @@
-# A Two-Stage Deep Learning System for Audio Deepfake Detection
+# 딥페이크 음성 탐지
 
-Undergraduate thesis, Soonchunhyang University, Department of Computer Engineering, 2026.
+공개 음성 데이터에서 실제 음성과 합성 음성을 구분하는 졸업논문 프로젝트입니다.
+6종 음향 특징을 결합하고 BiLSTM, Transformer, Hybrid 모델의 분류 성능을 비교했습니다.
 
-This repository contains the implementation of a two-stage deepfake speech detection
-system that combines frame-level multi-acoustic feature extraction with temporal
-sequence classification.
+- 기간: 약 3개월
+- 작성자: 이은정 · 순천향대학교 컴퓨터공학과
+- 사용 기술: Python, PyTorch, librosa, scikit-learn
+
+## 주요 구현
+
+- MFCC, Delta, Delta-Delta, LFCC, Mel-Spectrogram, Spectral Contrast를 프레임별 106차원 벡터로 결합했습니다.
+- 입력 특징과 학습 조건을 맞춘 뒤 세 시퀀스 모델을 비교했습니다.
+- 특징 데이터를 chunk 단위로 저장하고 Welford 알고리즘으로 정규화 통계를 계산했습니다.
+- Accuracy 외에 Macro F1, EER, ECE와 오분류 수를 확인했습니다.
+
+## 실험 결과와 한계
+
+테스트 15,891건에서 BiLSTM의 Macro F1은 0.9990, EER은 0.082%였습니다.
+5-fold 교차검증 Macro F1은 평균 0.986, 표준편차 0.006으로, 단일 테스트 결과와 구분해서 봐야 합니다.
+아래 수치는 저장된 실험 결과 기준이며, 한국어 음성이나 새로운 합성 방식에 대한 성능을 보장하지 않습니다.
+데이터 출처별·화자별 분리와 외부 데이터 평가는 추가 검증 과제입니다.
+
+## 문서 안내
+
+아래에는 특징 구성, 모델 비교, 데이터 준비 및 학습 환경을 정리했습니다.
+데이터 원본은 저장소에 포함하지 않습니다.
 
 ---
 
