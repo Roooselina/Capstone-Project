@@ -2,8 +2,8 @@
 
 공개 음성 데이터에서 실제 음성(real)과 합성 음성(fake)을 구분하는 졸업논문 프로젝트입니다. 프레임마다 6종 음향 특징을 뽑아 106차원 벡터로 결합하고(1단계), 같은 입력과 학습 조건에서 BiLSTM, Transformer, Hybrid(BiLSTM + Transformer) 분류기를 비교했습니다(2단계).
 
-- 작성자: 이은정, 순천향대학교 컴퓨터공학과 졸업논문
-- 기간: 약 3개월
+- 작성자: 이은정, 순천향대학교 컴퓨터공학과 졸업논문 (개인 연구: 전처리, 특징 설계, 모델 학습, 평가)
+- 기간: 2025.09.15 ~ 2025.11.04 (연구·실험)
 - 사용 기술: Python, PyTorch, librosa, scikit-learn
 
 | 항목 | 내용 |
@@ -55,7 +55,7 @@ flowchart LR
 | ASVspoof 2019 LA (Kaggle 미러 `awsaf49/asvpoof-2019-dataset`) | train, dev, eval의 프로토콜 파일로 bonafide는 REAL, spoof는 FAKE로 옮겨 합침 |
 | LibriSpeech train-clean-100 | REAL 데이터로 추가 (`data_combine.ipynb` 셀 2~3) |
 
-이전 README에는 "ASVspoof 2021"과 "Kaggle 기반 데이터"가 적혀 있었지만, 저장소 노트북에서는 ASVspoof 2021을 읽는 코드를 찾지 못했습니다. 논문 원고와 대조가 필요한 항목입니다.
+실험 데이터는 Kaggle에서 받았습니다(작성자 확인). 이전 README에 있던 "ASVspoof 2021"은 저장소 노트북에서 읽는 코드를 찾지 못해 이 문서에서 뺐습니다.
 
 - 분할: REAL, FAKE 폴더별로 파일 목록을 섞은 뒤(`random.seed(42)`) 8:1:1로 나눴습니다(`data_combine.ipynb` 셀 10~11). 화자나 원본 코퍼스 기준 분할은 하지 않았습니다.
 - 규모(v4 노트북 셀 5 출력): train 127,113 / val 15,888 / test 15,891, 합계 158,892. 세 분할 모두 real:fake 약 1:2.32.
@@ -97,7 +97,7 @@ flowchart LR
 - SpecAugment: time mask 30, freq mask 20 (학습 시에만)
 - seed 42, 배치 64
 
-이전 README의 BiLSTM 2층, weight decay 1e-2, patience 10, freq mask 10은 v4 코드와 다릅니다(freq mask 10은 v2 노트북 값). 논문에 쓴 설정이 어느 쪽인지 확인이 필요합니다.
+이전 README의 BiLSTM 2층, weight decay 1e-2, patience 10, freq mask 10은 v4 코드와 다릅니다(freq mask 10은 v2 노트북 값). 논문의 최종 학습 설정은 위 v4 설정과 같습니다(작성자 확인).
 
 ## 결과
 
@@ -194,8 +194,8 @@ Capstone-Project/
 
 ## 논문
 
-Lee Eunjung, "A Two-Stage Deep Learning System for Audio Deepfake Detection," B.Eng. thesis, Soonchunhyang University, 2026.
+Lee EunJeong, "A Two-Stage Deep Learning System for Audio Deepfake Detection," B.Eng. thesis, Soonchunhyang University, 2026.
 
 ## 라이선스
 
-라이선스가 지정되지 않았습니다.
+코드와 문서는 [MIT License](LICENSE)를 따릅니다. ASVspoof 2019, LibriSpeech 등 데이터셋은 이 라이선스에 포함되지 않으며 각 배포처의 이용 조건을 따릅니다.
